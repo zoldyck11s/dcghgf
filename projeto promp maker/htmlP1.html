@@ -1,0 +1,129 @@
+htmlP1.html: 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <meta name="keywords" content="Impressão 3D, Desigh 3D, PropMaker " />
+  <meta name="author" content="Eleni, Vitor, Mathias, Naizy, Val" />
+  <meta name="description" content="..." />
+  <title>PropMaker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo-title">
+      <a href="htmlP1.html"><img src="imagens/logo.png" class="Logo PropMaker"></a>
+        <h1>PropMaker</h1>
+      <nav>
+        <ul>
+          <li><a href="htmlP1.html">Início</a></li>
+          <li><a href="html_login.html">Login</a></li>
+          <li><a href="html_cads.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Bem-vindo à PropMaker</h2>
+      <p>Produtos incríveis esperam por você!</p>
+      <a href="#produtos">Ver Produtos</a>
+    </div>
+  </section>
+
+  <section class="produtos" id="produtos">
+    <div class="container">
+      <h2>Produtos em Destaque</h2>
+      <div class="galeria">
+        <div class="produto">
+          <h3>Produto 1</h3>
+          <p>Descrição breve do produto.</p>
+          <a href="html_prod1.html"><button>Ver mais</button></a>
+        </div>
+        <div class="produto">
+          <h3>Produto 2</h3>
+          <p>Descrição breve do produto.</p>
+           <a href="html_prod2.html"><button>Ver mais</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 PropMaker. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+<canvas id="background-canvas"></canvas> 
+
+<script>
+  
+  const canvas = document.getElementById("background-canvas");
+  const ctx = canvas.getContext("2d");
+
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+
+  canvas.width = width;
+  canvas.height = height;
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.zIndex = "0";
+  canvas.style.pointerEvents = "none";
+
+  let particles = [];
+
+  for (let i = 0; i < 100; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 2 + 1,
+      speedY: Math.random() * 1 + 0.5,
+      opacity: Math.random() * 0.5 + 0.3
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 0, 157, ${p.opacity})`; // rosa neon
+      ctx.fill();
+    }
+  }
+
+  function update() {
+    for (let p of particles) {
+      p.y += p.speedY;
+      if (p.y > height) {
+        p.y = 0;
+        p.x = Math.random() * width;
+      }
+    }
+  }
+
+  function animate() {
+    draw();
+    update();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  });
+</script>
+
+</body>
+</html>

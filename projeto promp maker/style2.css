@@ -1,0 +1,114 @@
+/* Estilos específicos para a página de cadastro, só para não confundi */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    
+    }
+
+    header {
+
+      background: #000000;
+      color: #fff;
+      padding: 20px 0;
+    }
+    
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    
+    header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logo-fixa {              
+  display: flex;
+  align-items: center;   
+  gap: 10px;              
+}
+
+
+.logo-fixa img {          
+  width: 80px;           
+  height: auto;           
+}
+    
+    nav ul {
+      padding: 0;
+      list-style: none;
+      display: flex;
+    }
+    
+    nav ul li {
+      margin-left: 20px;
+    }
+    
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .cadastro-page {
+      padding: 50px 0;
+      text-align: center;
+    }
+    
+    .cadastro-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(255, 253, 253);
+
+    }
+
+    
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    button[type="submit"] {
+      background: #fff;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    
+    button[type="submit"]:hover {
+      background: #e0008a;
+    }
+    
+    footer {
+      background: #000000;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 50px;
+    }
+  </style>
